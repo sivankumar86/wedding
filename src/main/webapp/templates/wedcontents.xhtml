@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition>
+		<script type="text/javascript">
+		$(document).ready(function() {
+	          $('#tr').toggle(function(){
+	            $('#top').animate({top:0},500);
+	            $('#invitiation').animate({height:900},500);
+	            $('#center').animate({top:400},500);
+	            $('#right').animate({top:400},500);
+	            $('#left').animate({top:400},500);
+	            $('#bottom').animate({top:450},500);
+	            $('#tc').css('display','block');
+	            $('#tc').html("Zoom in");
+	        },function(){
+	        	$('#top').animate({top:50},500);
+	        	 $('#invitiation').animate({height:600},500);
+		            $('#center').animate({top:100},500);
+		            $('#right').animate({top:100},500);
+		            $('#left').animate({top:100},500);
+		            $('#bottom').animate({top:150},500);
+		            $('#top').animate({left:400},500);
+		            $('#top').animate({width:400},500);
+		            $('#top').animate({height:400},500);
+		            $('#top').css("z-index","3");
+		            $('#tc').html("");
+	        });
+
+	          $('#lopen').toggle(function(){
+	            $('#left').animate({left:0},500);
+	            window.setTimeout(function () {changeIndex()}, 1000);  
+	      },function(){
+	        	$("#left").css("z-index","3");
+	        	$('#left').animate({left:340},500);
+	        });
+	          $('#right').toggle(function(){
+	            $(this).animate({left:800},500);
+	        },function(){
+	        	$(this).animate({left:450},500);
+	        });
+	          $('#bc').toggle(function(){
+	        	  var top = $( "#top" ).css( "top" );
+	        	
+	            $('#bottom').animate({top:450},500);
+	            $('#invitiation').animate({height:900},500);
+	            $('#center').animate({top:100},500);
+	            $('#right').animate({top:100},500);
+	            $('#left').animate({top:100},500);
+	            $('#top').animate({top:50},500);
+	            
+	        },function(){
+	        	 $('#bottom').animate({top:150},500);
+	        	 $('#invitiation').animate({height:600},500);
+		         
+	        });
+	          
+	          
+	          $('#tc').toggle(function(){
+		            $('#top').animate({top:40},500);
+		            $('#top').animate({left:450},500);
+		            $('#top').animate({width:600},500);
+		            $('#top').animate({height:600},500);
+		            $('#top').css("z-index","99");
+		            $(this).html("Zoom out");
+		        },function(){
+		        	 $('#top').animate({top:50},500);
+			            $('#top').animate({left:400},500);
+			            $('#top').animate({width:400},500);
+			            $('#top').animate({height:400},500);
+			            $('#top').css("z-index","3");
+			            $(this).html("Zoom in");
+		        });
+	        
+	});
+
+		function changeIndex(){
+			$('#left').css("z-index","15");	
+		}
+		
+
+
+			</script>
+		<style>
+		<!--
+#invitiation {
+	width: 1200px;
+	position: relative;
+	height: 600px;
+	margin: auto;
+	top:10px;
+}
+#lopen{
+color:red; 
+cursor: pointer;
+left:-10px;
+position:absolute;
+width:60px;
+top:150px;
+}
+#lopen:HOVER{
+color:blue; 
+}
+.wing {
+	height: 400px;
+	width: 400px;
+	position: absolute;
+	z-index: 3;
+    cursor: pointer;
+}
+
+#center {
+
+	position: absolute;
+	z-index: 10;
+	height: 400px;
+	width: 400px;
+	left: 400px;
+	top: 100px;
+}
+
+#top {
+
+	top: 50px;
+	left: 400px
+}
+
+#right {
+
+	top: 100px;
+	left: 450px
+}
+
+#left {
+    background-color:orange;
+	top: 100px;
+	left: 340px
+}
+
+#bottom {
+
+	top: 150px;
+	left: 400px
+}
+#bc{
+position:absolute;
+bottom:-16px;
+color:red;
+width: 50px;
+left:150px;
+}
+#tc{
+top:20px;
+position:relative;
+color:green;
+text-align: left;
+width:70px;
+display: none;
+}
+#tzoom{
+width:380px;
+}
+.wing img{
+display: block; width: 100%; height:100%;z-index=1;
+}
+#center img { display: block; width: 100%; height:100%}
+
+#right .text {
+    position:absolute;
+    top:100px;
+    left:30px;
+   
+    width:300px;
+}
+#ropen{
+    position:absolute;
+    top:150px;
+    color:red;
+    right:-15px;
+    width:60px;
+}
+#headline{
+color:red;	
+font-family: Arial, Helvetica, sans-serif;
+font-size: 25px;
+}
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    z-index:10;
+}
+.rotate180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    z-index:10;
+}
+
+
+#tr{
+ position:absolute;
+ top:-16px;
+ width:50px;
+ left:150px;
+ z-index:10;
+}
+#contact{
+position: absolute;
+top:80px;
+left:30px;
+text-align: left;
+
+}
+td{
+text-align: left;
+height: 20px;
+}
+tr{
+margin: 1em;
+height: 40px;
+}
+#submit{
+position:absolute;
+left:120px;
+padding:10px;
+}
+.it{
+height:20px;
+width:220px;
+}
+.description{
+height:80px;
+width:220px;
+}
+#cs{
+font-style:italic;
+font-stretch: semi-condensed;
+}
+#cfont{
+font-size: 12px;
+padding-left:20px;
+}
+div#clock {
+position:absolute;
+left:20px;
+color: white;
+margin: 20px auto;
+width: 600px;
+overflow: hidden;
+text-align: center;
+}
+div#clock p {
+background: #333;
+float: left;
+height: 57px;
+width: 57px;
+}
+div#clock div.space {
+color: #ccc;
+display: block;
+line-height: 1.7em;
+font-size: 25px;
+float: left;
+height: 57px;
+width: 12px;
+}
+div#clock p span {
+display: block;
+font-size: 25px;
+font-weight: bold;
+padding: 5px 0 0;
+}
+#tleft{
+float:left;
+color:#1E1D38;
+}
+-->
+</style>
+<div id="headline">
+<marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();"><strong> Sivakumar weds Sivasankari </strong></marquee>
+</div>
+ <div id="clock">
+   <div id="tleft"> Time  Left : </div>
+ 
+ <p>
+    <span id="days"></span>
+    Days
+  </p>
+  <div class="space">:</div>
+  <p>
+    <span id="hours"></span>
+    Hours
+  </p>
+  
+      <div class="space">:</div>
+      <p>
+        <span id="minutes"></span>
+        Min
+      </p>
+      <div class="space">:</div>
+      <p>
+        <span id="seconds"></span>
+        Sec
+      </p>
+  </div>
+  <script type="text/javascript">
+  $(function() {
+	  var currentDate = new Date();
+	  var thisDate = '2015-02-23 01:30:00 UTC';
+	  var jDate = new Date(thisDate);
+	//  alert(jDate);
+	  $('div#clock').countdown(jDate.valueOf(), function(event) {
+	    $this = $(this);
+	    switch(event.type) {
+	      case "seconds":
+	      case "minutes":
+	      case "hours":
+	      case "days":
+	      case "weeks":
+	      case "daysLeft":
+	        $this.find('span#'+event.type).html(event.value);
+	        break;
+	      case "finished":
+	        $this.fadeTo('slow', .5);
+	        break;
+	    }
+	  });
+	});
+  </script>
+<div id="invitiation">
+<div id="top" class="wing">
+<div id="tr">
+<img src="images/topa.png"  alt="invite"></img>
+</div>
+<ui:include src="../templates/welcome.xhtml" />
+</div>
+<div id="left" class="wing">
+<div id="lopen"  >
+<img src="images/lefta.png" alt="Wedding"></img>
+</div>
+<div id="gimage">
+<ui:include src="../templates/image.xhtml" />
+</div>
+</div>
+<div id="center">
+<img src="images/center.jpg" alt="Wedding"></img>
+</div>
+<div id="right" class="wing">
+<div id="ropen" >
+<img src="images/arrow1.png" alt="Wedding"></img>
+</div>
+<img src="images/right.png" alt="Wedding"></img>
+<div class="text">
+<strong> Venue Details:</strong>
+<address>
+	Ammai Appar G.S. Mahal,<br/>
+	4E, Arcot Road,<br/>
+	Alamelrangapuram,<br/>	
+		Vellore
+</address><br/><br/>
+<strong>Reception: </strong><br/>
+22-Feb-2015, 6.30 P.M onwards
+<strong>Muhurrtham: </strong><br/>23-Feb-2015, 6.00 A.M to 7.30 A.M.
+ </div>
+</div>
+<div id="bottom" class="wing">
+<div id="contact">
+ <div id="cs">Contact Us :</div>
+ <div id="cfont">Please fill in the below if you want to leave us a message.</div>
+<h:form>
+   <table>
+   <tr>
+   <td>Name:</td>
+   <td><h:inputText class="it" value="#{emailController.name}" ></h:inputText></td>
+   </tr>
+   <tr>
+   <td>Your Email:</td>
+   <td><h:inputText class="it"  value="#{emailController.email}" ></h:inputText></td>
+   </tr>
+    <tr>
+   <td>Phone No:</td>
+   <td><h:inputText class="it"  value="#{emailController.phone}" ></h:inputText></td>
+   </tr>
+    <tr>
+   <td>Message :</td>
+   <td><h:inputTextarea    class="description" value="#{emailController.description}" ></h:inputTextarea></td>
+   </tr>
+   </table>
+   <div id="submit">
+   <h:commandButton value="Send" action="#{emailController.sendEmail}"></h:commandButton>
+   </div>
+</h:form>
+</div>
+<img src="images/bottom.jpg" alt=""></img>
+<div id="bc">
+<img   src="images/downa.png" alt="Contact us"></img>
+
+</div>
+
+</div>
+</div>
+	</ui:composition>
+</body>
+</html>

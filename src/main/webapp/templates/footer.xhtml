@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   <body>
+      <ui:composition> 
+        
+         <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30377400-2', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			document.getElementById('audio').play();	
+	        });
+		</script>
+<style>
+#fb-link{
+height:20px;
+float:right;
+}
+
+#totalvisit {
+padding-bottom: 10px;
+
+}
+embed{
+padding-top: 5px;
+}
+</style>
+
+<div id="totalvisit">
+Total Visits : #{contactBean.pageVisit}
+</div>
+
+<div class=".playSound">
+<audio id="audio" controls="controls" loop="loop">
+   
+    <source src="mp3/Maangalyam.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+		
+
+
+<div id="fb-link">
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsivakumarandsankari.com%2Fwedding%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
+</div>
+      </ui:composition>	
+   </body>
+</html>
